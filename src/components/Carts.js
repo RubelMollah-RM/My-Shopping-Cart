@@ -3,7 +3,7 @@ import '../style/carts.css';
 
 const Carts = ({item, handelClick}) => {
     const {img, title, author, price} = item;
-    console.log(item);
+    
     return (
         <div className='cards'>
             <div className="image-box">

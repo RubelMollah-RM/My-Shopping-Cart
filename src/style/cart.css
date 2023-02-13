@@ -29,7 +29,7 @@ article{
     align-items: center;
     justify-content: space-between;
     margin-top: 20px;
-    border-bottom: 20px skyblue;
+    border-bottom: 2px solid skyblue;
     padding-bottom: 5px;
 }
 
@@ -67,7 +67,7 @@ article{
     justify-content: space-between;
 }
 
-,.total span:nth-child(1){
+.total span:nth-child(1){
     font-size: 2rem;
     color: skyblue;
     font-weight: bold;

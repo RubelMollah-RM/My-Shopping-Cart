@@ -28,22 +28,32 @@ function App() {
     setCart([...cart, item]);
   };
 
-  const handelIncrease = (item) =>{
-    console.log(item);
-  }
+  const handleChange = (item, d) =>{
+		let ind = -1;
+		cart.forEach((data, index)=>{
+			if (data.id === item.id)
+				ind = index;
+		});
+		const tempArr = cart;
+		tempArr[ind].amount += d;
+		
+		if (tempArr[ind].amount === 0)
+			tempArr[ind].amount = 1;
+		setCart([...tempArr])
+	}
 
   return (
     <React.Fragment>
       <Navbar size={cart.length} setShow={setShow} />
       {
-        show ? <Amazon handelClick={handelClick} /> : <Cart cart={cart} setCart={setCart} handelIncrease = {handelIncrease} />
+        show ? <Amazon handelClick={handelClick} /> : <Cart cart={cart} setCart={setCart} handleChange={handleChange} />
       }
 
       {
         warning && <div className='warning'>item already added to your card</div>
       }
     </React.Fragment>
-    
+
   );
 }
 

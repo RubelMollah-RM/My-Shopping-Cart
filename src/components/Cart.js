@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import '../style/cart.css';
 
-const Cart = ({ cart, setCart, handelIncrease }) => {
+const Cart = ({ cart, setCart, handleChange }) => {
     const [price, setPrice] = useState(0);
     const handelPrice = () => {
         let ans = 0;
@@ -29,9 +29,9 @@ const Cart = ({ cart, setCart, handelIncrease }) => {
                         <p>{item.title}</p>
                     </div>
                     <div>
-                        <button onClick={() => handelIncrease(item.id)}> + </button>
+                        <button onClick={() => handleChange(item, +1)}> + </button>
                         <button>{item.amount}</button>
-                        <button> - </button>
+                        <button onClick={() => handleChange(item, -1)}> - </button>
                     </div>
                     <div>
                         <span>{item.price}</span>
@@ -39,11 +39,11 @@ const Cart = ({ cart, setCart, handelIncrease }) => {
                     </div>
                 </div>)
             }
-            <div>
+            <div className='total'>
                 <span>Total Price of your cart</span>
                 <span>Rs - {price}</span>
             </div>
-            
+
         </article>
     );
 };
